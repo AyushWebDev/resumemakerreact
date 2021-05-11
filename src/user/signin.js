@@ -1,6 +1,6 @@
 import React from 'react';
 import './signup.css';
-import {signin} from "./auth";
+import {isAuthenticated, signin} from "./auth";
 import {Link,Redirect} from 'react-router-dom';
 const errorStyle={
     textAlign: "center"
@@ -88,7 +88,7 @@ class Signin extends React.Component{
     render(){
         if(this.state.redirectToReferer)
         {
-            return <Redirect to="/profile"/>
+            return <Redirect to={`/profile/${isAuthenticated().user._id}`}/>
         }
         return(
             <div>
@@ -109,7 +109,7 @@ class Signin extends React.Component{
                                     <div className="">
                                     
                                     <div className="form-group">
-                                        <label><i class="fa fa-envelope" aria-hidden="true"></i></label>
+                                        <label><i className="fa fa-envelope" aria-hidden="true"></i></label>
                                         <input type="email" className="form-control" placeholder="Enter Email" onChange={this.handleChange("email")} value={this.state.email}></input>
                                     </div>
                                     <div className="form-group">

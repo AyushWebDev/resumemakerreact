@@ -85,6 +85,66 @@ export const getBasics=async (id)=>{
     }
 }
 
+export const getEdu=async (id)=>{
+    try{
+        const response=await fetch(`http://localhost:8000/edu/${id}`,{ 
+            method: "GET", 
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json" 
+            }
+        });
+        return response.json();
+    }catch(e){
+        console.log(e);
+    }
+}
+
+export const getWork=async (id)=>{
+    try{
+        const response=await fetch(`http://localhost:8000/work/${id}`,{ 
+            method: "GET", 
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json" 
+            }
+        });
+        return response.json();
+    }catch(e){
+        console.log(e);
+    }
+}
+
+export const getAch=async (id)=>{
+    try{
+        const response=await fetch(`http://localhost:8000/achievement/${id}`,{ 
+            method: "GET", 
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json" 
+            }
+        });
+        return response.json();
+    }catch(e){
+        console.log(e);
+    }
+}
+
+export const getSkill=async (id)=>{
+    try{
+        const response=await fetch(`http://localhost:8000/skill/${id}`,{ 
+            method: "GET", 
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json" 
+            }
+        });
+        return response.json();
+    }catch(e){
+        console.log(e);
+    }
+}
+
 export const isAuthenticated=()=>{
     if(typeof window !==undefined)
     {

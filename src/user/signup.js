@@ -2,6 +2,7 @@ import React from 'react';
 import './signup.css';
 import {signup} from "./auth";
 import {Link} from 'react-router-dom';
+import Register from '../image/Login.jpg';
 const errorStyle={
     textAlign: "center"
 }
@@ -144,12 +145,19 @@ class Signup extends React.Component{
 
     render(){
         return(
-            <div>
-                <div className="container">
+            <div className="sign">
+                <div className="container cont">
                     <div className="row">
-                        <div className="col-md-2"></div>
+                        <div className="col-md-4" style={{padding:'0px'}}>
+                            <img src={Register} style={{width:'100%',height:'100%'}}/>
+                        </div>
                         <div className="col-md-8">
-                            <h2>Sign Up</h2>
+                            <div className='navigate'>
+                                <ul className="pagination">
+                                    <li className="page-item active"><Link to='#' className='page-link'><h5>Register</h5></Link></li>
+                                    <li className="page-item"><Link to='/signin' className='page-link'><h5>Login</h5></Link></li>
+                                </ul>
+                            </div>  
                             <form onSubmit={this.handleSubmit}> 
                                 {this.state.error && 
                                 <div className="alert alert-danger" style={errorStyle}>
@@ -161,11 +169,11 @@ class Signup extends React.Component{
                                 <div className="col-md-6">
                                 <div className="form-group">
                                     <label><b>Firstname</b></label>
-                                    <input type="text" className="form-control" placeholder="Enter Firstname" onChange={this.handleChange("firstname")} value={this.state.firstname}></input>
+                                    <input type="text" className="form-control" placeholder="Given Name" onChange={this.handleChange("firstname")} value={this.state.firstname}></input>
                                 </div>
                                 <div className="form-group">
                                     <label><b>Lastname</b></label>
-                                    <input type="text" className="form-control" placeholder="Enter Lastname" onChange={this.handleChange("lastname")} value={this.state.lastname}></input>
+                                    <input type="text" className="form-control" placeholder="Family Name" onChange={this.handleChange("lastname")} value={this.state.lastname}></input>
                                 </div>
                                 <div className="form-group">
                                     <label><i class="fa fa-key" aria-hidden="true"></i></label>
@@ -194,7 +202,7 @@ class Signup extends React.Component{
                                 <div className="row">
                                     <div className="col-md-4"></div>
                                     <div className="col-md-4">
-                                        <button type="submit" className="btn btn-warning btn-block">Register</button>
+                                        <button type="submit" className="btn btn-warning btn-block mybtn">Register</button>
                                         <p style={{fontSize: "14px",textAlign: "center"}}>Already have an account? <Link to="/signin">Log In</Link></p>
                                     </div>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import './signup.css';
 import {isAuthenticated, signin} from "./auth";
 import {Link,Redirect} from 'react-router-dom';
+import Login from '../image/Register.jpg'
 const errorStyle={
     textAlign: "center"
 }
@@ -91,19 +92,26 @@ class Signin extends React.Component{
             return <Redirect to={`/profile/${isAuthenticated().user._id}`}/>
         }
         return(
-            <div>
-                <div className="container">
+            <div className="sign">
+                <div className="container cont">
                     <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-8">
-                            <h2>Sign In</h2>
+                        <div className="col-md-4"  style={{padding:'0px'}}>
+                            <img src={Login} style={{width:'100%',height:'100%'}}/>
+                        </div>
+                        <div className="col-md-8" style={{marginTop:'80px'}}>
+                            <div className="navigate">
+                                <ul className="pagination">
+                                    <li className="page-item"><Link to='/signup' className='page-link'><h5>Register</h5></Link></li>
+                                    <li className="page-item active"><Link to='#' className='page-link'><h5>Login</h5></Link></li>
+                                </ul>   
+                            </div>
                             <form onSubmit={this.handleSubmit}> 
                                 {this.state.error && 
                                 <div className="alert alert-danger" style={errorStyle}>
                                     <i className='fas fa-exclamation-circle' style={{color:"red"}}></i> {this.state.error.toUpperCase()}
                                 </div>
                                 }
-                                <div className="container">
+                                <div className="container" >
                                     <div className="row">
                                         <div className="col-md-4"></div>
                                     <div className="">
@@ -117,7 +125,7 @@ class Signin extends React.Component{
                                         <input type="password" className="form-control" placeholder="Enter Password" onChange={this.handleChange("password")} value={this.state.password}></input>
                                     </div>
                                     <div className="">
-                                            <button type="submit" className="btn btn-warning btn-block">Login</button>
+                                            <button type="submit" className="btn btn-warning btn-block mybtn">Login</button>
                                             <p style={{fontSize: "14px",textAlign: "center"}}>Don't have an Account? <Link to="/signup">Create Account</Link></p>
                                         </div>
                                     </div>
